@@ -1,8 +1,10 @@
 module.exports = function () {
 
+   /*
     this.When('I click on LoginButton', function () {
         return page.jootza.clickElement('LoginButton');
-    });
+    });*/
+    
 
     this.Then('I should see LoginHeader', function () {
         return page.jootza.elementExists('LoginHeader');
@@ -33,8 +35,13 @@ module.exports = function () {
         driver.sleep(10000)
         return page.jootza.scrollToElement(objectKey);
     });
+    
 
-    this.When('I click on {string}', function (objectKey) {
+   /* this.When('I click on {string}', function (objectKey) {
+        return page.jootza.clickElement(objectKey);
+    });*/
+
+    this.When(/^I click on "([^"]*)"$/, function (objectKey) {
         return page.jootza.clickElement(objectKey);
     });
 
