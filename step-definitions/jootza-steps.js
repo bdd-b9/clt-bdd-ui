@@ -1,15 +1,22 @@
 module.exports = function () {
 
     this.When('I click on LoginButton', function () {
-        return page.jootza.clickElement('LoginButton');
+        return page.jootza.clickElement('LoginButn');
     });
 
     this.Then('I should see LoginHeader', function () {
         return page.jootza.elementExists('LoginHeader');
     });
+ //   this.Given('I am on the tesla website', function () {
+  //      return helpers.loadPage("https:///www.tesla.com");
+   // });
+
+  //  this.Given('I am on the facebook website', function () {
+   //     return helpers.loadPage("https://www.facebook.com");
+   // });
 
     this.Given('I am on the Jootza portal', function () {
-        return helpers.loadPage(page.jootza.url);
+        return helpers.loadPage(page.jootza.JootzaPortal); //https://jootza.com
     });
 
     this.When('I click on RegisterButton', function () {
@@ -37,16 +44,12 @@ module.exports = function () {
     this.When('I click on {string}', function (objectKey) {
         return page.jootza.clickElement(objectKey);
     });
-
     this.When(/^I enter username "([^"]*)"$/, function (objKey1) {
         return page.jootza.inputUserName(objKey1);
     });
 
     this.When(/^I enter password "([^"]*)"$/, function (objKey1) {
         return page.jootza.inputPassword(objKey1);
-    });
-    this.Then(/^I should see "([^"]*)"$/, function (objectKey) {
-        return page.jootza.elementExists(objectKey);
     });
 
 
