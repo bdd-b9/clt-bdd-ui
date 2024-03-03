@@ -9,10 +9,6 @@ module.exports = {
     
 
     elements: {
-        // username: by.name('username'),
-        // password: by.name('password'),
-        // parabankLoginButton: '//*[@id="mainNav"]/div/div/div[2]/ul/li[3]/button',
-        // parabankLoginHeader: '//*[@id="RegistrationForm"]/img',
         LoginButon:'//*[@id="loginPanel"]/form/div[3]/input',
         Error:'//*[@id="rightPanel"]/p',
         Errormessages:'//*[@id="rightPanel"]',
