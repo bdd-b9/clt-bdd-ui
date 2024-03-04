@@ -1,92 +1,54 @@
-Feature: As a parabank customer, I want to be able to navigate to landing page so that I can view Bank details
+Feature: As a parabank user, I want to be able to navigate to landing page so that I can view bank details
 
+@parabank @parabankLanding
+  Scenario: Customer is able to login to parabank website
+    Given I am on the parabank website
+   # When I see "customerLogin"
+    When I enter inputs for login
+    | inputName | inputValue |
+    | username | Joe |
+    |password | Parabank@12 |
+    And I click on loginBtn
+    Then I Should see welcomemessage
+  
+  #      | username | password | 
+  #      | Anusha  | Jackson@123  |
+  #      | Lillyjack | Jackson@123 |
+        
+@parabankforlog @parabankforgotlog
+Scenario: Customer is able to retrive login credentials 
+Given I am on the parabank website
+When I click on forgotLoginLink
+And I see customerlookUp
+And I enter inputs for customerLookUp
+           | InputName | InputValue | 
+           | FirstName | Joe |
+           | LastName | Hanes |
+           | Address | 123 |
+           | City | Lombard |
+           | State | IL |
+           | ZipCode | 5567 |
+           | SSN | 1234 |
+ When I click on findLogin     
+ Then I should see loginInformation     
 
-  @parabank @parabankLanding1
-  Scenario: Customer is displayed with parabank.com landing page
-    Given I am on the "paraBankHomepage" website
-    When I click on "registerLink"
-    Then I should see "signingUpHeader"
+@parabankreg @parabankRegister
+Scenario: Customer is able to Register 
+Given I am on the parabank website
+When I click on registerLink
+#And I see "customerlookup"
+And I enter inputs for Registraticdon
+           | InputName | InputValue | 
+           | RegFirstN | Lilly |
+           | RegLastN | Jac |
+           | RegAddres | 123 |
+           | Regcity | Tam |
+           | Regstate | FL |
+           | Regzip | 33422 |
+           | Regphone | 12345678 |
+           | Regssn | 12345 |
+           | RegUser | Lillyjac |
+           | RegPswd | Jackson@123 |
+           | RegConfirm | Jackson@123 |
+ Then I click on Register     
 
-    @parabank @parabankRegister
-    Scenario: Create a new user for parabank Portal
-    Given I am on the "parabank" website
-    When I click on "registerLink"
-    Then I should see "registrationPage"
-    And I have entered the following values on the "registrationPage"
-     | fieldName                  | value  |
-    
-    | Firstname                  | random |
-    | Lastname                 | random |
-    | Address                    | random |
-    | City                       | random |
-    | State                     | random |
-    | ZipCode               | random |
-    | MobileNumber               | 0      |
-    | Password                   | random |
-    | SecurityQuestion           | random |
-    | SecurityAnswer             | random |
-    And I click on the Register button
-    Then I will be on the Login page
-        And I will get a popup confirming my registration details
-    
-    Given I will navigate to the Admissions Portal login page
-    When I click the Create an Account link
-     Then I will be on the ontrack: prospect - Register page
-    Given I have entered the following values on the registration page
-    | fieldName                  | value  |
-    | Title                      | random |
-    | Firstname                  | random |
-    | Middlename                 | random |
-    | Surname                    | random |
-    | DOB                        | random |
-    | Gender                     | random |
-    | EmailAddress               | random |
-    | MobileNumber               | 0      |
-    | Password                   | random |
-    | SecurityQuestion           | random |
-    | SecurityAnswer             | random |
-    And I click on the Register button
-    Then I will be on the Login page
-        And I will get a popup confirming my registration details
-
-   @jootza @jootzaLogin
-   Scenario: Customer is displayed with jootza.com login page
-   Given I am on the "JootzaPortal" website
-   When I click on "LoginButton"
-  And I enter "username" as "testuser"
-    And I enter "password" as "testpass123"
-    And I click on "LoginActionButton"
-    Then I should see "ErrorMessage"
- 
- 
- # @jootza @jootzaLanding1
- # Scenario: Customer is displayed with jootza.com landing page
- #   Given I am on the Jootza portal
- #   When I click on LoginButton
- #   Then I should see LoginHeader
-
-  #@jootza @jootzaRegister
-  #Scenario: Customer is displayed with jootza.com landing page
-  #  Given I am on the Jootza portal
-  #  When I click on RegisterButton
-  #  Then I should see RegisterHeader
-
-  #@jootza @jootzaOpenAccount
-  #Scenario: Customer is able to Click to Open Account
-  #  Given I am on the Jootza portal
-  #  When I click to OpenAccountButton
-  #  Then I should see CustomerRegistrationHeader
-
-  #@jootza @jootzaSubscribe
-  #Scenario: Customer is displayed with jootza.com landing page
-  #  Given I am on the Jootza portal
-  #  When I scroll to "Subscribe"
-  #  When I click on "Subscribe"
-  #  Then I should see "invalidEmailMessage"
-
-  #@jootza @jootzaStartNow
-  #Scenario: Customer is displayed with jootza.com landing page
-  #  Given I am on the Jootza portal
-  #  When I scroll to "StarterPlan"
-  #  When I click on "StartNow"
-  #  Then I should see "CustomerSignup"
