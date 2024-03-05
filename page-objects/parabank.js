@@ -34,10 +34,11 @@ module.exports = {
         RegisterConfirmpassword: '//*[@id="repeatedPassword"]',
         RegisterButton: '//*[@id="customerForm"]/table/tbody/tr[13]/td[2]/input',
         RegistrationConfirmed: '//*[@id="leftPanel"]/h2',
-
-
+        LoggedInUserError: '//*[@id="rightPanel"]/h1',
+        LoggedInPasswordError: '//*[@id="rightPanel"]/p',
         FindLoginInfo: '//*[@id="lookupForm"]/table/tbody/tr[8]/td[2]/input',
-
+        RegistrationFailed: '//*[@id="customer.ssn.errors"]',
+        passwordNotMatch: '//*[@id="repeatedPassword.errors"]',
 
     },
     clickElement: async function (objectKey) {

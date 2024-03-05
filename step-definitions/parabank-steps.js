@@ -9,10 +9,18 @@ module.exports = function () {
     this.When('I click on loginButton', function () {
         return page.parabank.clickElement('LoginButton');
     });
-
+ 
     this.Then('I should see LoggedInUser', function () {
         return page.parabank.elementExists('LoggedInUser');
     });
+
+    this.Then('I should see LoggedInUserError', function () {
+        return page.parabank.elementExists('LoggedInUserError');
+    });
+    this.Then('I should see LoggedInPasswordError', function () {
+        return page.parabank.elementExists('LoggedInPasswordError');
+    });
+
     // this.When('I click on RegisterLink', function () {
     //     return page.parabank.clickElement('Register');
     // });
@@ -29,6 +37,13 @@ module.exports = function () {
     // });
     this.Then('I should see RegistrationConfirmed', function () {
         return page.parabank.elementExists('RegistrationConfirmed');
+    });
+
+    this.Then('I should see RegistrationFailed', function () {
+        return page.parabank.elementExists('RegistrationFailed');
+    });
+    this.Then('I should see passwordNotMatch', function () {
+        return page.parabank.elementExists('passwordNotMatch');
     });
 
     this.When(/^I click on "([^"]*)"$/, function (objKey1) {
