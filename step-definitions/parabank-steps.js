@@ -30,6 +30,7 @@ module.exports = function () {
     this.Then('I Should see welcomemessage', function () {
                return page.parabank.elementExists('welcome');
     })
+ 
     this.When('I click on forgotLoginLink', function() {
         return page.parabank.clickElement('forgotLoginLink');
     });
@@ -81,8 +82,11 @@ module.exports = function () {
    
     this.Then('I click on Register', function()
     {
-        return page.parabank.clickElement('RegisterBtn')
+        return page.parabank.clickElement('RegisterBtn');
     })
+    this.Then('I should see welcomemsg', function () {
+        return page.parabank.elementExists('welcomemsg');
+})
   //this.When(/^I click on "([^"]*)"$/, function(objectKey) { 
   //          return page.parabank.clickElement(objectKey)
   //})

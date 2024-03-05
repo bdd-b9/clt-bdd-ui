@@ -11,7 +11,7 @@ Feature: As a jootza customer, I want to be able to navigate to landing page so 
    Scenario: Customer is displayed with jootza.com login page
    Given I am on the "JootzaPortal" website
    When I click on "LoginButton"
-  And I enter "username" as "testuser"
+   And I enter "username" as "testuser"
     And I enter "password" as "testpass123"
     And I click on "LoginActionButton"
     Then I should see "ErrorMessage"

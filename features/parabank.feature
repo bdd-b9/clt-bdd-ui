@@ -10,10 +10,18 @@ Feature: As a parabank user, I want to be able to navigate to landing page so th
     |password | Parabank@12 |
     And I click on loginBtn
     Then I Should see welcomemessage
-  
-  #      | username | password | 
-  #      | Anusha  | Jackson@123  |
-  #      | Lillyjack | Jackson@123 |
+
+    @parabank @parabankInvalidlogin 
+    Scenario: Customer is able to login to parabank website
+    Given I am on the parabank website
+   # When I see "customerLogin"
+    When I enter inputs for login
+    | inputName | inputValue |
+    | username | Jose |
+    |password | Parabank@12 |
+    And I click on loginBtn
+    Then I Should see errorMsg
+ 
         
 @parabankforlog @parabankforgotlog
 Scenario: Customer is able to retrive login credentials 
@@ -32,23 +40,24 @@ And I enter inputs for customerLookUp
  When I click on findLogin     
  Then I should see loginInformation     
 
+
 @parabankreg @parabankRegister
 Scenario: Customer is able to Register 
 Given I am on the parabank website
 When I click on registerLink
 #And I see "customerlookup"
-And I enter inputs for Registraticdon
+And I enter inputs for Registration
            | InputName | InputValue | 
-           | RegFirstN | Lilly |
-           | RegLastN | Jac |
+           | RegFirstN | Jossy |
+           | RegLastN | J |
            | RegAddres | 123 |
            | Regcity | Tam |
            | Regstate | FL |
            | Regzip | 33422 |
            | Regphone | 12345678 |
            | Regssn | 12345 |
-           | RegUser | Lillyjac |
+           | RegUser | Jossy |
            | RegPswd | Jackson@123 |
            | RegConfirm | Jackson@123 |
- Then I click on Register     
-
+ And I click on Register     
+Then I should see welcomemsg

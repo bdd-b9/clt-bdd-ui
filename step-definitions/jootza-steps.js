@@ -1,38 +1,38 @@
 module.exports = function () {
 
-    this.When('I click on LoginButton', function () {
-        return page.jootza.clickElement('LoginButn');
-    });
+//   this.When('I click on LoginButton', function () {
+//        return page.jootza.clickElement('LoginButn');
+//    });
 
-    this.Then('I should see LoginHeader', function () {
-        return page.jootza.elementExists('LoginHeader');
+//    this.Then('I should see LoginHeader', function () {
+//        return page.jootza.elementExists('LoginHeader');
+//    });*/
+    this.Given('I am on the tesla website', function () {
+        return helpers.loadPage("https:///www.tesla.com");
     });
- //   this.Given('I am on the tesla website', function () {
-  //      return helpers.loadPage("https:///www.tesla.com");
-   // });
 
   //  this.Given('I am on the facebook website', function () {
    //     return helpers.loadPage("https://www.facebook.com");
    // });
 
-    this.Given('I am on the Jootza portal', function () {
+    this.Given('I am on the JootzaPortal', function () {
         return helpers.loadPage(page.jootza.JootzaPortal); //https://jootza.com
     });
 
-    this.When('I click on RegisterButton', function () {
+    this.When('I click on register', function () {
         return page.jootza.clickElement('Register');
     });
 
-    this.Then('I should see RegisterHeader', function () {
-        return page.jootza.elementExists('RegisterHeader');
-    });
+   // this.Then('I should see RegisterHeader', function () {
+   //     return page.jootza.elementExists('RegisterHeader');
+   // });
 
-    this.When('I click to OpenAccountButton', function () {
-        return page.jootza.clickElement('OpenAccount');
-    });
+  //  this.When('I click to OpenAccountButton', function () {
+  //      return page.jootza.clickElement('OpenAccount');
+  //  });
 
 
-    this.Then('I should see CustomerRegistrationHeader', function () {
+ /*   this.Then('I should see CustomerRegistrationHeader', function () {
         return page.jootza.elementExists('CustomerRegistration');
     });
 
@@ -68,4 +68,36 @@ module.exports = function () {
         await driver.sleep(3000);
         return;
     });
+
+    //StepDefinition for JootzaRegistration
+/*
+    this.Given('I am on the Jootza portal', function () {
+        return helpers.loadPage(page.jootza.JootzaPortal); //https://jootza.com
+    });
+    this.When(/^I click on "([^"]*)"$/, function(objectKey) { // VehiclesButton, InventoryLink
+        return page.common.clickElement(objectKey)
+    })
+    this.When(/^I enter Inputs for register$/, async function(table){
+        return page.jootza.inputElement(table)
+    })
+*/
+this.When(/^I enter Inputs for register$/, function(dataTable){
+    const rows=dataTable.rows();
+    for(var i=0;i<rows.length;i++)
+    {
+       
+        var inputname = rows[i][0]
+        var inputvalue = rows[i][1]
+        
+        page.jootza.inputElement(inputname,inputvalue)
+    
+}
+    return;
+});
+this.When('I click on signUpBtn', function(){
+    return page.jootza.clickElement('signUpBtn')
+})
+this.Then('I should see accesscodeErrMsg', function(){
+    return page.jootza.elementExists('accesscodeErrMsg')
+})
 };

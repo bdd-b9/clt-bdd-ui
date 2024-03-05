@@ -9,7 +9,7 @@ module.exports = {
     elements: {
         
         ShopAvailable: '//section[@id="tesla-hero-parallax-3245"]/div[2]/div[1]/div[1]/section/a[1]',
-//        
+        
         VehiclesLink: '//button[@id="dx-nav-item--vehicles"]',
         Inventory: '//*[@id="mega-menu"]/div/dialog/div[1]/div[1]/div[3]/ul/li[1]/a',
         InventoryHeader: '//div[@id="iso-container"]/div/div[1]/section/h1',
@@ -21,19 +21,18 @@ module.exports = {
         ErrorMsg: '//*[@id="RegistrationForm"]/div[2]/div[2]',
         
         VehiclesButton: '//*[@id="dx-nav-item--vehicles"]/span',
-        username: by.name('username'), // '//*[@id="username"]', //*[@id="login-password relate-pos"]
+        username: by.name('username'), 
         password: by.name('password'),
         LoginActionButton: '//*[@id="btn-login"]/button',
         ErrorMessage: '//*[@id="toast-container"]/mdb-toast-component/div',
         
         LoginButton: '//*[@id="bs-example-navbar-collapse-1"]/ul/li[2]/a',
         LoginHeader: '/html/body/mdb-root/main/div/app-login/header/section/div/div/div/div/div/div/div[1]/h2/strong',
-    //    ShopAvailable: '//section[@id="tesla-hero-parallax-3245"]/div[2]/div[1]/div[1]/section/a[1]',
-    //    InventoryHeader: '//div[@id="iso-container"]/div/div[1]/section/h1',
+    
         
     },
 
-    clickElement: async function (objectKey) { // LoginButton
+    clickElement: async function (objectKey) { 
         // eslint-disable-next-line no-console
         console.log('The objectKey  is: '+objectKey) 
         const selector = this.elements[objectKey];
