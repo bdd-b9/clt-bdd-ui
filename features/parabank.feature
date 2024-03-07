@@ -18,7 +18,7 @@ Feature: As a parabank  customer, I want to be able to Sign Up , Login with vali
             | userName  | Manjula2812  |
             | password  | Manjula      |
             | confirmPw | Manjula      |
-        When I click on the "registerButton"
+        And I click on the "registerButton"
         Then I should see the "welcomePage"
 
 
@@ -30,7 +30,7 @@ Feature: As a parabank  customer, I want to be able to Sign Up , Login with vali
             | InputName   | InputValue  |
             | cusUserName | Manjula2812 |
             | cusPassword | Manjula     |
-        When I click on the "loginButton"
+        And I click on the "loginButton"
         Then I should see the "CustomerPage"
 
 
@@ -48,6 +48,6 @@ Feature: As a parabank  customer, I want to be able to Sign Up , Login with vali
             | flstate     | Maryland     |
             | flzipCode   | 21043        |
             | flssnNumber | 4545258369   |
-        When I click on the "findLoginInfoButton"
+        And I click on the "findLoginInfoButton"
         Then I should see the "loginInfoDetails"
 
