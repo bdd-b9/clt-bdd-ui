@@ -25,7 +25,7 @@ module.exports = function () {
     this.When(/^I enter "([^"]*)" as "([^"]*)"$/, function(inputname, value) { // VehiclesButton, InventoryLink
       return page.parabank.inputElement(inputname, value);
      });
-    this.When('I click on ForgotLoginInfo', function () {
+    this.When('I click on forgotLoginInfo', function () {
       return page.parabank.clickElement('ForgotLoginInfo');
   });
 

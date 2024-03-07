@@ -46,5 +46,5 @@ Feature:  As a Parabank user, I want to be able to register and login and valida
   @parabank @parabankForgotLoginInfo3
   Scenario: Customer wants to reset password
     Given I am on the parabank website
-    When I click on ForgotLoginInfo
-    Then I should see "customerlookupmessage"
+    When I click on forgotLoginInfo
+    Then I should see "customerLookupMessage"

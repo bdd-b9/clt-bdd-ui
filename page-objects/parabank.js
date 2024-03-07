@@ -23,10 +23,10 @@ module.exports = {
   user:'//*[@id="customer.username"]',
   pass:'//*[@id="customer.password"]',
   confirm:'//*[@id="repeatedPassword"]',
-  ForgotLoginInfo:  '//*[@id="loginPanel"]/p[1]/a',
-  customerlookupmessage:  '//*[@id="rightPanel"]/h1',
+  forgotLoginInfo:  '//*[@id="loginPanel"]/p[1]/a',
+  customerLookupMessage:  '//*[@id="rightPanel"]/h1',
   Register: '//input[@value="Register"]',
-  WelcomeMessage: '//*[@id="rightPanel"]/h1',
+  welcomeMessage: '//*[@id="rightPanel"]/h1',
 },
 
 //clickElement: async function (objectKey) { // LoginBtn
