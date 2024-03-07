@@ -1,5 +1,4 @@
- Feature: As a parabank customer, I want to be able to navigate to landing page so that I can view product information
-
+ Feature: parabank website login and registration feature
   @parabank @parabankCustLogin
   Scenario: Customer is displayed with parabank.parasoft.com landing page
     Given I am on the parabankparasoft portal
@@ -8,14 +7,14 @@
     And I click on loginButton
     Then I should see LoggedInUser
 
-    @parabank @parabankCustLoginUserError
+    @parabank @parabankCustLoginPasswordError
   Scenario: Customer is displayed with parabank.parasoft.com landing page
     Given I am on the parabankparasoft portal
     When I enter "Username" as "priya"
     And I click on loginButton
     Then I should see LoggedInUserError
 
-    @parabank @parabankCustLoginPasswordError
+    @parabank @parabankCustLoginUserError
   Scenario: Customer is displayed with parabank.parasoft.com landing page
     Given I am on the parabankparasoft portal
     When I enter "Password" as "priya123"
@@ -68,7 +67,7 @@
      And I click on "RegisterButton"
     Then I should see RegistrationFailed
 
- @parabank @parabankRegistrationpasswordMatch
+ @parabank @parabankRegistrationpasswordMismatch
   Scenario: Customer is displayed with parabank.parasoft.com landing page
     Given I am on the parabankparasoft portal
     When I click on "RegisterLink"
