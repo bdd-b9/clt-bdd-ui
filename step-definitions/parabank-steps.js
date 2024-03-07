@@ -2,15 +2,15 @@ const helpers = require("../runtime/helpers");
 
 module.exports = function () {
 
-    this.Given(/^I am on the "([^"]*)" websitepage$/, function (objectKey) {
+    this.Given(/^I am on "([^"]*)" websitepage$/, function (objectKey) {
         return helpers.loadPage(page.parabank[objectKey],2000);
     });
 
-    this.And(/^I click on the "([^"]*)"$/, function(objectKey) { 
+    this.And(/^I click on "([^"]*)"$/, function(objectKey) { 
         return page.parabank.clickElement(objectKey);
     });
 
-    this.Then(/^I should see the "([^"]*)"$/, function (objectKey) {
+    this.Then(/^I should see "([^"]*)"$/, function (objectKey) {
         return page.parabank.elementExists(objectKey);
     });
 
