@@ -6,7 +6,7 @@ module.exports = function () {
         return helpers.loadPage(page.parabank[objectKey],2000);
     });
 
-    this.When(/^I click on the "([^"]*)"$/, function(objectKey) { 
+    this.And(/^I click on the "([^"]*)"$/, function(objectKey) { 
         return page.parabank.clickElement(objectKey);
     });
 
