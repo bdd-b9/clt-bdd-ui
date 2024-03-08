@@ -27,6 +27,11 @@ module.exports = {
         CustomerSignup: '/html/body/mdb-root/main/div/app-customer-signup/header/section/div/div/div/div/div/div/h2/strong',
         StarterPlan: '//*[@id="pricing"]/div/div/div[2]/div/div[2]/button',
         StartNow: '//*[@id="pricing"]/div/div/div[2]/div/div[2]/button',
+        WelcomeMessage: '/html/body/mdb-root/app-navigation/header/mdb-navbar/nav/div[2]/p/strong',
+       // LoginActionButton: '//*[@id="btn-login"]'
+        
+        
+
     },
 
     content: {

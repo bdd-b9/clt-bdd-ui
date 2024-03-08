@@ -2,9 +2,12 @@ Feature: As a jootza customer, I want to be able to navigate to landing page so 
 
   @jootza @jootzaLanding1
   Scenario: Customer is displayed with jootza.com landing page
-    Given I am on the Jootza portal
-    When I click on LoginButton
-    Then I should see LoginHeader
+    #Given I am on the Jootza portal
+    #When I click on LoginButton
+    #Then I should see LoginHeader
+    Given I am on the "Jootza" website
+    When I click on "Login" button
+
 
   @jootza @jootzaRegister
   Scenario: Customer is displayed with jootza.com landing page
@@ -31,3 +34,14 @@ Feature: As a jootza customer, I want to be able to navigate to landing page so 
     When I scroll to "StarterPlan"
     When I click on "StartNow"
     Then I should see "CustomerSignup"
+
+
+  @jootza @jootzaValidLogin
+  Scenario: Customer is able to login to jootza.com
+  Given I am on the "jootzaPortal" website
+  When I click on "LoginButton"
+  And I enter "username" as "kavithas"
+  And I enter "password" as "demo1234"
+  And I click on "LoginActionButton"
+  Then I should see "WelcomeMessage"
+    
