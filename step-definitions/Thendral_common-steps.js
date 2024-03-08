@@ -1,13 +1,10 @@
 module.exports = function () 
 {
-
-
-    this.Given(/^I am on the "([^"]*)" website$/, function (objectKey)
+    this.Given(/^I am on the "([^"]*)" website$/, function (objectKey) 
     {
-       // return page.common.
-        return helpers.loadPage(page.Thendralcommon[objectKey]);
-
-    });
+      return helpers.loadPage(page.Thendralcommon[objectKey]);
+    }); 
+           
 
     this.When(/^I click on "([^"]*)" button$/, function (objectKey)    
     {
@@ -28,10 +25,15 @@ module.exports = function ()
     {
        //console.log(inputName)
         return page.Thendralcommon.inputElement(inputName,inputValue);
+        
     });
 
+   
+         
+      
+
 
 
     
     
-}
+    }

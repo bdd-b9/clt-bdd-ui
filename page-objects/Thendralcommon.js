@@ -6,6 +6,7 @@ module.exports =
     collegeboard: 'https://www.collegeboard.org/',
     tesla: 'https://www.tesla.com',
     Jootza: 'https://www.jootza.com/',
+    parabank: 'https://parabank.parasoft.com/parabank/index.htm',
 
     elements: 
     {
@@ -19,8 +20,20 @@ module.exports =
         Password: '//*[@id="okta-signin-password"]',
         Signin: '//*[@id="okta-signin-submit"]',
         Unablesignin: '//*[@id="form67"]/div[1]/div[1]/div/div/p',
-        
-        
+        //parabank related variables
+        welcomeMessage: '//*[@id="bodyPanel"]',
+        UserName: '//*[@id="loginPanel"]/form/div[1]/input',
+        Password: '//*[@id="loginPanel"]/form/div[2]/input',
+        ParaBankLogin: '//*[@id="loginPanel"]/form/div[3]/input',
+        ForgotLoginInfo: '//*[@id="loginPanel"]/p[1]/a',
+        CustomerLookup: '//*[@id="rightPanel"]/h1',
+        parabanksignup: '//*[@id="rightPanel"]/h1',
+        MPRegister: '//*[@id="loginPanel"]/p[2]/a',
+        parabanksignup: '//*[@id="rightPanel"]/h1',
+        UserName: '//*[@id="loginPanel"]/form/div[1]/input',
+        Register: '//*[@id="customerForm"]/table/tbody/tr[13]/td[2]/input',
+
+
 
 
     },
