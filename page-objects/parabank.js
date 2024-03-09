@@ -43,6 +43,32 @@ module.exports = {
         loginInfoDetails: '//*[@id="rightPanel"]/p[1]',
 
 
+        customerCareButton: '//*[@id="headerPanel"]/ul[2]/li[3]/a',
+        customerCarePage: '//*[@id="rightPanel"]/h1',
+        ccName: by.name('name'),
+        ccEmail: by.name('email'),
+        ccPhone:by.name('phone'),
+        ccMessage:by.name('message'),
+        sendToCuscareButton: '//*[@id="contactForm"]/table/tbody/tr[5]/td[2]/input',
+        thankYouRepPage: '//*[@id="rightPanel"]/p[1]',
+        customerCareButton: '//*[@id="headerPanel"]/ul[2]/li[3]/a',
+        customerCarePage: '//*[@id="rightPanel"]/h1',
+
+        aboutUsButton: '//*[@id="headerPanel"]/ul[1]/li[2]/a',
+        demoWebsite: '//*[@id="rightPanel"]/h1',
+
+        servicesButton: '//*[@id="headerPanel"]/ul[1]/li[3]/a',
+        availServicePage: '//*[@id="rightPanel"]/span[1]',
+
+        productsButton: '//*[@id="headerPanel"]/ul[1]/li[4]/a',
+        parasoftPage: '//*[@id="main"]/section[2]/div[2]/div/div/div[1]',
+        
+        locationButton: '//*[@id="headerPanel"]/ul[1]/li[5]/a',
+        paraLocationPage: '//*[@id="main"]/section[2]/div[2]/div/div/div',
+
+        adminPageButton: '//*[@id="headerPanel"]/ul[1]/li[6]/a',
+        paraAdminPage: '//*[@id="rightPanel"]/h1',
+
 
     },
     clickElement: async function (objectKey) {
