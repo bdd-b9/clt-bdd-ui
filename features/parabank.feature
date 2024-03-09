@@ -1,4 +1,4 @@
-Feature: As a parabank  customer, I want to be able to Sign Up , Login with valid credentials and check the functionality of forgot login info 
+Feature: As a parabank  customer, I want to be able to Sign Up , Login with valid credentials and check the functionality of forgot login info
 
     @parabank@parabankRegister
     Scenario: Customer is able to register with Parabank
@@ -51,3 +51,47 @@ Feature: As a parabank  customer, I want to be able to Sign Up , Login with vali
         And I click on "findLoginInfoButton"
         Then I should see "loginInfoDetails"
 
+    @parabank@parabankCustomerCare
+    Scenario: Customer is able to send the message to Customer Care service
+        Given I am on "parabank" websitepage
+        When I click on "customerCareButton"
+        Then I should see "customerCarePage"
+        When I enter the inputs details
+            | InputName | InputValue                             |
+            | ccName    | Manjula Ramanathan                     |
+            | ccEmail   | manju123@gmail.com                     |
+            | ccPhone   | 2525252525                             |
+            | ccMessage | I cant see the Parabank Locations page |
+        And I click on "sendToCuscareButton"
+        Then I should see "thankYouRepPage"
+
+    @parabank@parabankAboutUs
+    Scenario: Customer is able to see the About Us page of Parabank website
+        Given I am on "parabank" websitepage
+        When I click on "aboutUsButton"
+        Then I should see "demoWebsite"
+
+    @parabank@parabankServicesPage
+    Scenario: Customer is able to see SOAP Services page of Parabank website
+        Given I am on "parabank" websitepage
+        When I click on "servicesButton"
+        Then I should see "availServicePage"
+
+    @parabank@parabankProductPage
+    Scenario: Customer is able to see Parasoft products page of Parabank website
+        Given I am on "parabank" websitepage
+        When I click on "productsButton"
+        Then I should see "parasoftPage"
+
+    @parabank@parabankLocationsPage
+    Scenario: Customer is able to see Parasoft Location page of Parabank website
+        Given I am on "parabank" websitepage
+        When I click on "locationButton"
+        Then I should see "paraLocationPage"
+
+
+    @parabank@parabankAdminPage
+    Scenario: Customer is able to see Parabank Admin page of Parabank website
+        Given I am on "parabank" websitepage
+        When I click on "adminPageButton"
+        Then I should see "paraAdminPage"
