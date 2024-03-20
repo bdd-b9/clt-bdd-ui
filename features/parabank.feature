@@ -1,4 +1,5 @@
-Feature: As a parabank customer, I have to be able to login, register successfully so that I can view page information
+Feature: As a parabank customer, I want to able to navigate this website.
+
 @parabank @parabankRegisterNewUser
     Scenario: Customer is displayed with parabank register page.
         Given : I am on the "ParabankPortal" website 
@@ -14,11 +15,12 @@ Feature: As a parabank customer, I have to be able to login, register successful
             |ZipCode| 34567|
             |Phone|123457890|
             |SSN|987654321|
-            |UserName|Ashok|
-            |Password|Kumar|
-            |Confirm|Kumar|  
+            |UserName|ashok|
+            |Password|kumar|
+            |Confirm|kumar|  
         And : I click on "RegisterNewUser"
-        Then : I should see "AccountsOverview"     
+        #Then : I should see "AccountsOverview" 
+        Then : I should see "WelcomeMessage"    
 
 @parabank @parabankValidLogin
     Scenario Outline: Customer is displayed with parabank login page.
@@ -30,7 +32,7 @@ Feature: As a parabank customer, I have to be able to login, register successful
         Then : I should see "AccountsOverview"
         Examples:
             | username | password |
-            | Ashok | Kumar  | 
+            | Ashok7 | Kumar7  | 
 
 
 @parabank @parabankInvalidLogin
@@ -62,3 +64,98 @@ Feature: As a parabank customer, I have to be able to login, register successful
             |SSN1|987654321|
         When : I click on "FindMyLoginInfo"
         Then : I should see "ErrorMessageForNotfindingInfo"
+
+@parabank @parabankCustomerCare
+    Scenario: Customer is displayed with parabank home page.
+        Given : I am on the "ParabankPortal" website
+        When : I click on "CustomerCareButton"
+        Then : I should see "CustomerCareHeader"
+        When : I enter the inputs for customer care support
+            |inputname|inputvalue|
+            |Name1 | Ashok |
+            |Email1 | Kumar |
+            |Phone1 | 123 margarita road |
+            |Message1 | Temecula |      
+        And : I click on "SendToCustomerCareButton"
+        Then : I should see "ThankYouMessage"
+        
+
+        
+       # And : I enter "password" as "<password>"
+        #Then : I should see "SigningUpEasy"
+        
+
+@parabank @parabankTransferFunds
+    Scenario Outline: Customer is displayed with parabank login page.
+        #Given : I am logging into "ParabankPortal" website as "<username>" and "<password>"
+        Given : I am logging into "ParabankPortal" website as "<username>","<password>" and "LoginActionButton"
+        Then : I should see "WelcomeMessage"
+        When : I click on "TransferFunds"
+        And : I enter "AmountToTransfer" as "100"
+        And : I click on "FromAccount"
+        And : I click on "ToAccount"
+        And : I click on "TransferButton"
+        Then : I should see "TransferFundsPage"
+        Examples: 
+        | username | password |
+        | ashok | kumar |
+
+
+
+@parabank @parabankOpenNewAccount
+    Scenario Outline: Customer is displayed with parabank login page.
+        Given : I am logging into "ParabankPortal" website as "<username>","<password>" and "LoginActionButton"
+        Then : I should see "AccountsOverview"
+        When : I click on "OpenNewAccount"
+        Then : I should see "AccountOpenedMessage"
+        When : I click on "<Account_Type>"
+        And : I click on "<Account_List>"
+        And : I click on "OpenNewAccountButton"
+        Then : I should see "AccountOpenedMessage"
+        Examples: 
+            | Account_Type | Account_List | username | password |
+            | CheckingAccount | ExistingAccount1 | ashok | kumar |
+            | SavingsAccount | ExistingAccount2 | ashok | kumar |
+
+
+
+@parabank @parabankAccountsOverview
+    Scenario Outline: Customer is displayed with parabank login page.
+        Given : I am logging into "ParabankPortal" website as "<username>","<password>" and "LoginActionButton"
+        Then : I should see "AccountsOverview"
+        #Then : I should see "BankErrorMessage"
+        Examples: 
+        | username | password |
+        | ashok | kumar |
+
+@parabank @parabankBillPay
+    Scenario Outline: Customer is displayed with parabank login page.
+        Given : I am logging into "ParabankPortal" website as "<username>","<password>" and "LoginActionButton"
+        Then : I should see "AccountsOverview"
+        #Then : I should see "BankErrorMessage"
+        When : I click on "BillPay"
+        Then : I should see "BillPaymentServices"
+        When : I enter payee information for payment 
+            | inputname | inputvalue |
+            | PayeeName| Vrishin  |
+            | PayeeAddress| 123|
+            | PayeeCity | Tem |
+            | PayeeState | CA |
+            | PayeeZipCode| 92345 |
+            | PayeePhone | 98765 |
+            | PayeeAccount | 18765 |
+            | PayeeVerifyAccount| 18765 |
+            | PayeeAmount | 1 |
+        And : I scroll to "PayeeFromAccount"    
+        And : I click on "SendPayment"
+        Then : I should see "PaymentConfirmMessage"    
+        Examples: 
+        | username | password |
+        | ashok | kumar |
+
+                
+        
+        
+
+
+

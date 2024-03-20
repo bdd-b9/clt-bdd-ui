@@ -7,13 +7,29 @@ module.exports = function () {
         //return helpers.loadPage(page.parabank.ParabankPortal);
     });
 
+    this.Given(/^: I am logging into "([^"]*)" website as "([^"]*)","([^"]*)" and "([^"]*)"$/, 
+               async function(Portal, inputUserName, inputPassword, login){
+                    helpers.loadPage(page.parabank[Portal]);
+                    await driver.sleep(2000);  
+                    await page.parabank.inputElement('username', inputUserName);
+                    await page.parabank.inputElement('password', inputPassword);
+                    await page.parabank.clickElement(login)
+    });
+
     this.When(/^: I enter "([^"]*)" as "([^"]*)"$/, function(inputname,inputvalue){
         return page.parabank.inputElement(inputname,inputvalue);
     });
 
     this.When(/^: I click on "([^"]*)"$/, function(objectKey){
+        console.log("entering steps")
         return page.parabank.clickElement(objectKey);
     });
+
+    this.When(/^: I scroll to "([^"]*)"$/, function(objectKey) {
+        console.log("entering into step selections");
+        //return page.parabank.scrollToElement(Account_Type , TypeOfAccount);
+        return page.parabank.scrollToElement(objectKey);
+    }),
 
     this.Then(/^: I should see "([^"]*)"$/, function(objectKey){
         return page.parabank.elementExists(objectKey);
@@ -35,6 +51,26 @@ module.exports = function () {
             var inputname = rows[i][0];
             var inputvalue = rows[i][1];
             page.parabank.inputElement(inputname,inputvalue);
+        }
+        return;
+    });
+// node index.js -s ./step-definitions -t @jootzaLanding1
+
+    this.When(/^: I enter the inputs for customer care support$/, function(DataTable) {
+        const rows = DataTable.rows();
+        for(var i=0 ; i < rows.length ; i++){
+            var inputname = rows[i][0];
+            var inputvalue = rows[i][1];
+            page.parabank.inputElement(inputname,inputvalue);
+        }
+        return;
+    });
+    this.When(/^: I enter payee information for payment$/, function(DataTable){
+        const rows = DataTable.rows();
+        for(var i=0 ; i < rows.length ; i++){
+            var inputname = rows[i][0];
+            var inputvalue = rows[i][1];
+            page.parabank.inputElement(inputname, inputvalue);
         }
         return;
     });

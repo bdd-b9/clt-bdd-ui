@@ -4,7 +4,7 @@ const { By } = require("selenium-webdriver");
 const { Driver } = require("selenium-webdriver/chrome");
 
 module.exports = {
-    ParabankPortal: 'https://parabank.parasoft.com',
+    ParabankPortal: 'https://parabank.parasoft.com/parabank/index.htm', // 'https://parabank.parasoft.com',
     elements : {
                // THESE ARE  ALL FOR LOGIN : 
         username: by.name('username'), //*[@id="loginPanel"]/form/div[1]/input',  
@@ -40,16 +40,81 @@ module.exports = {
         UserName: by.name('customer.username'),
         Password: by.name('customer.password'),
         Confirm: by.name('repeatedPassword'),
-        RegisterNewUser : '//*[@id="customerForm"]/table/tbody/tr[13]/td[2]/input'      
+        RegisterNewUser : '//*[@id="customerForm"]/table/tbody/tr[13]/td[2]/input',
+        WelcomeMessage : '//*[@id="rightPanel"]/h1',
+
+        // THESE ARE ALL FOR RAISING CUSTOMER CARE SUPPORT
+        CustomerCareButton: '//*[@id="headerPanel"]/ul[2]/li[3]/a',
+        CustomerCareHeader: '//*[@id="rightPanel"]/h1',
+        SendToCustomerCareButton: '//*[@id="contactForm"]/table/tbody/tr[5]/td[2]/input',
+        Name1: by.name('name'),
+        Email1: by.name('email'),
+        Phone1: by.name('phone'),
+        Message1: by.name('message'),
+        ThankYouMessage: '//*[@id="rightPanel"]/p[1]',
+
+        // Open new account
+        OpenNewAccount : '//*[@id="leftPanel"]/ul/li[1]/a',
+        CheckingAccount : '//*[@id="type"]/option[1]',
+        SavingsAccount : '//*[@id="type"]/option[2]',
+        ExistingAccount1 : '//*[@id="fromAccountId"]/option[1]',
+        ExistingAccount2 : '//*[@id="fromAccountId"]/option[2]',
+        OpenNewAccountButton : '//*[@id="rightPanel"]/div/div/form/div/input',
+        AccountOpenedMessage : '//*[@id="rightPanel"]/div/div/h1', 
+        TypeOfAccount : '//*[@id="type"]',
+
+        // Accounts Overview
+        AccountsOverviewTab : '//*[@id="leftPanel"]/ul/li[2]/a',
         
+        // Bill Pay
+        BillPay : '//*[@id="leftPanel"]/ul/li[4]/a',
+        BillPaymentServices : '//*[@id="rightPanel"]/div/div[1]/h1',
+        SendPayment : '//*[@id="rightPanel"]/div/div[1]/form/table/tbody/tr[14]/td[2]/input',
+        PayeeName : by.name('payee.name'), //'//*[@id="rightPanel"]/div/div[1]/form/table/tbody/tr[1]/td[2]/input',
+        PayeeAddress : by.name('payee.address.street'), // '//*[@id="rightPanel"]/div/div[1]/form/table/tbody/tr[2]/td[2]/input',
+        PayeeCity : by.name('payee.address.city'), //'//*[@id="rightPanel"]/div/div[1]/form/table/tbody/tr[3]/td[2]/input',
+        PayeeState : by.name('payee.address.state'), //'//*[@id="rightPanel"]/div/div[1]/form/table/tbody/tr[4]/td[2]/input',
+        PayeeZipCode : by.name('payee.address.zipCode'), //'//*[@id="rightPanel"]/div/div[1]/form/table/tbody/tr[5]/td[2]/input',
+        PayeePhone : by.name('payee.phoneNumber'), //'//*[@id="400dd540-f782-49c7-9693-24c50bae4907"]',
+        PayeeAccount : by.name('payee.accountNumber'), //'//*[@id="rightPanel"]/div/div[1]/form/table/tbody/tr[8]/td[2]/input',
+        PayeeVerifyAccount : by.name('verifyAccount'), //'//*[@id="rightPanel"]/div/div[1]/form/table/tbody/tr[9]/td[2]/input',
+        PayeeAmount : by.name('amount'), //'//*[@id="rightPanel"]/div/div[1]/form/table/tbody/tr[11]/td[2]/input',
+        PayeeFromAccount : '//*[@id="rightPanel"]/div/div[1]/form/table/tbody/tr[13]/td[2]/select',
+            //'/html/body/div[1]/div[3]/div[2]/div/div[1]/form/table/tbody/tr[13]/td[2]/select',
+            //'//*[@id="rightPanel"]/div/div[1]/form/table/tbody/tr[13]/td[2]/select', // may be wrong
+                    //*[@id="rightPanel"]/div/div[1]/form/table/tbody/tr[13]/td[2]/select/option
+                    
+        PaymentConfirmMessage : '//*[@id="rightPanel"]/div/div[2]/h1',
+        
+        // transfer
+        WelcomeMessage: '//*[@id="leftPanel"]/p/b',
+        TransferFunds: '//*[@id="leftPanel"]/ul/li[3]/a',
+        AmountToTransfer: by.name('input'), // '//*[@id="amount"]', 
+        //FromAccount : '//*[@id="fromAccountId"]/option[1]' ,
+        FromAccount: '//*[@id="fromAccountId"]',
+        //ToAccount :'//*[@id="toAccountId"]/option[2]',
+        ToAccount :'//*[@id="toAccountId"]',
+        TransferButton : '//*[@id="rightPanel"]/div/div/form/div[2]/input',
+        TransferFundsPage : '//*[@id="rightPanel"]/div/div/h1' 
+
     },
     clickElement : async function(objectKey) {
         console.log(objectKey + " - entering into Click method");
         const selector = this.elements[objectKey];
         //console.log(selector);
-        await driver.sleep(2000);
+        await driver.sleep(3000);
         console.log("Click Event of " + objectKey)
         return driver.findElement(By.xpath(selector)).click();
+    },
+    scrollToElement : async function(objectKey) {
+        console.log("Account_Type" + objectKey);
+        var selector = page.parabank.elements[objectKey];
+        //var element = document.getElementById(objectKey);
+        //console.log('Id of ' + objectKey + 'is : ' + element);
+        console.log('selector= ' + selector)
+        await driver.sleep(2000);
+        //console.log(driver.findElement(By.xpath(selector)));
+        return helpers.scrollToElement(driver.findElement(By.xpath(selector)));
     },
 
     inputElement : async function(inputname,inputvalue) {
